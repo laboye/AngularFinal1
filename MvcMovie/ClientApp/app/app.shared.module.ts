@@ -7,20 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
+import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { CreateMovieComponent } from './components/movies/createmovie.component';
-import { DeleteMovieComponent } from './components/movies/deletemovie.component';
-import { EditMovieComponent } from './components/movies/editmovie.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
+        CounterComponent,
+        FetchDataComponent,
         HomeComponent,
-        MoviesComponent,
-        CreateMovieComponent,
-        DeleteMovieComponent,
-        EditMovieComponent
+        MoviesComponent
     ],
     imports: [
         CommonModule,
@@ -29,10 +27,9 @@ import { EditMovieComponent } from './components/movies/editmovie.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'movies', component: MoviesComponent },
-            { path: 'createmovie', component: CreateMovieComponent },
-            { path: 'deletemovie/:id', component: DeleteMovieComponent },
-            { path: 'editmovie/:id', component: EditMovieComponent},
+            { path: 'counter', component: CounterComponent },
+            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'movies', component: MoviesComponent},
             { path: '**', redirectTo: 'home' }
         ])
     ]

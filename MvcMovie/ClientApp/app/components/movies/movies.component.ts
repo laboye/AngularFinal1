@@ -7,28 +7,17 @@ import { Http } from '@angular/http';
     styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent {
-    public movies: Movie[];
-    public moviesBak: Movie[];
-    public searchTerm: string;
+    public movies: Movies[];
 
-    constructor(public http: Http, @Inject('BASE_URL') public baseUrl: string) {
+    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
         http.get(baseUrl + 'api/Movies').subscribe(result => {
-            this.movies = result.json() as Movie[];
-            this.moviesBak = this.movies;
+            this.movies = result.json() as Movies[];
         }, error => console.error(error));
     }
-
-    filter() {
-        this.movies = this.moviesBak;
-
-        if (this.searchTerm ===""){
-            //Do nothing 
-        } else {
-            this.movies = this.movies.filter(m => m.title.includes(this.searchTerm) || m.genre.includes(this.searchTerm));
-        }
-    }
 }
-interface Movie {
+
+
+interface Movies {
     id: number;
     title: string;
     releaseDate: number;
